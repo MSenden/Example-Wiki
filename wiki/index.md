@@ -21,10 +21,14 @@ updated: 2026-06-28
 | [PHE_gamma-synchrony](pages/PHE_gamma-synchrony.md) | Gamma Synchrony in Visual Cortex | debated | 2026-06-28 |
 | [PHE_figure-ground-segregation](pages/PHE_figure-ground-segregation.md) | Figure-Ground Segregation | established | 2026-06-28 |
 
-## Models & Methods
+## Models
 | Page | Title | Confidence | Updated |
 |------|-------|------------|---------|
 | [MOD_kuramoto-v1-oscillator](pages/MOD_kuramoto-v1-oscillator.md) | Kuramoto Phase Oscillator Model of V1 (Karimian et al., 2025) | speculative | 2026-06-28 |
+
+## Methods & Analysis
+| Page | Title | Confidence | Updated |
+|------|-------|------------|---------|
 
 ## Theories
 | Page | Title | Status | Updated |

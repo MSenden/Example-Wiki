@@ -1,7 +1,7 @@
 # AGENT.md
 
 Read this file at the start of every session, regardless of which workflow you are running.
-After reading this file, read the module file for the current task.
+After reading this file, read the module file for the current task (all module files live alongside this file in `agent/`).
 
 ---
 
@@ -28,20 +28,30 @@ Contributors:             Mario Senden
 
 ```
 project-root/
-├── AGENT.md              ← read first, every session
-├── INGESTION.md          ← workflow: processing new PDFs
-├── REFINE_A.md           ← workflow: structural harmonization
-├── REFINE_B.md           ← workflow: depth audit
-├── REFINE_C.md           ← workflow: cross-link audit
 ├── README.md             ← human-facing project overview
-├── QUICKSTART.md         ← human-facing setup and usage guide
-├── VERIFICATION.md       ← human-facing verification protocol
+├── CLAUDE.md             ← Claude Code bootstrap (auto-read on launch)
+├── AGENTS.md             ← OpenAI Codex bootstrap
+├── CURSOR.md             ← Cursor bootstrap
+├── GEMINI.md             ← Gemini CLI bootstrap
+├── agent/                ← agent instruction files
+│   ├── AGENT.md          ← read first, every session (this file)
+│   ├── INGESTION.md      ← workflow: processing new PDFs
+│   ├── REFINE_A.md       ← workflow: structural harmonization
+│   ├── REFINE_B.md       ← workflow: depth audit
+│   └── REFINE_C.md       ← workflow: cross-link audit
+├── docs/                 ← human-facing documentation
+│   ├── QUICKSTART.md     ← setup and usage guide
+│   ├── VERIFICATION.md   ← verification protocol
+│   └── CONTRIBUTING.md   ← lab wiki submission guide
+├── scripts/              ← tools
+│   ├── validate.py       ← pre-submission structural validator
+│   └── setup.sh          ← one-command project initialization
 ├── raw/                  ← source PDFs; never modified by agent
 │   └── *.pdf
 └── wiki/
     ├── primary.bib       ← BibTeX: papers with PDFs in raw/
     ├── secondary.bib     ← BibTeX: papers cited within PDFs but not in raw/
-    ├── log.md    ← human verification log
+    ├── log.md            ← human verification log
     ├── index.md          ← wiki root index; agent navigation entry point
     └── pages/
         └── <TYPE>_<slug>.md
