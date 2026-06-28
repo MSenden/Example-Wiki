@@ -1,6 +1,6 @@
 # Example Wiki: The Role of Gamma Synchrony in Early Visual Cortex
 
-This is an example project-level wiki derived from the **[NeuroWiki](https://github.com/ccnmaastricht/NeuroWiki.git)** template. It is intended to illustrate how NeuroWiki can be used to build a literature-grounded wiki for a specific research project.
+This is an example project-level wiki derived from the **[NeuroWiki-Project](https://github.com/ccnmaastricht/NeuroWiki-Project.git)** template. It is intended to illustrate how NeuroWiki can be used to build a literature-grounded wiki for a specific research project.
 
 ---
 
