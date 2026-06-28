@@ -1,95 +1,42 @@
-# NeuroWiki
+# Example Wiki: The Role of Gamma Synchrony in Early Visual Cortex
 
-**This is a GitHub template repository.** Create one copy per project or research line. Click **Use this template** on GitHub, then follow the Quickstart below.
-
-NeuroWiki is a modular LLM-agent system for building and maintaining citation-grounded knowledge bases in neuroscience. Papers go in; structured, synthesized, cross-linked wiki pages come out.
-
-**[neurowiki.github.io](https://neurowiki.github.io)** · **[Example project wiki](https://github.com/neurowiki/example-hippocampus)**
+This is an example project-level wiki derived from the **[NeuroWiki](https://github.com/ccnmaastricht/NeuroWiki.git)** template. It is intended to illustrate how NeuroWiki can be used to build a literature-grounded wiki for a specific research project.
 
 ---
-
-## What it does
-
-- Reads PDFs and synthesizes their content into concept pages (phenomena, models, theories, brain regions, paradigms)
-- Tracks citation provenance with a two-tier system: `(@Key)` for verified primary sources, `(@Key†)` for reconstructed secondary citations
-- Surfaces conflicts between papers for human review rather than silently resolving them
-- Maintains confidence levels (`established` / `debated` / `speculative`) on every page
-- Supports structural harmonization, depth auditing, and cross-link auditing as independent refinement workflows
-- Scales from a single project into a lab-level wiki via pull request submission to a lab wiki repository
 
 ## Repo layout
 
 ```
-neurowiki/                     ← this template repo
-├── AGENT.md                   ← master agent file; read every session
-├── INGESTION.md               ← workflow: processing new PDFs
-├── REFINE_A.md                ← workflow: structural harmonization
-├── REFINE_B.md                ← workflow: depth audit
-├── REFINE_C.md                ← workflow: cross-link audit
-├── validate.py                ← script: local pre-submission structural validation
-├── setup.sh                   ← one-command project initialization
-├── CLAUDE.md                  ← Claude Code bootstrap → reads AGENT.md
-├── GEMINI.md                  ← Gemini CLI bootstrap → reads AGENT.md
-├── CURSOR.md                  ← Cursor bootstrap → reads AGENT.md
-├── AGENTS.md                  ← OpenAI Codex bootstrap → reads AGENT.md
-├── CONTRIBUTING.md            ← lab wiki submission guide
-├── VERIFICATION.md            ← human verification protocol
-├── QUICKSTART.md              ← setup guide and session invocation prompts
-├── README.md                  ← this file
-├── docs/index.html            ← GitHub Pages landing page
-├── .github/workflows/
-│   └── validate.yml           ← CI: validates wiki structure on push
-└── wiki/                      ← project wiki (empty; populated by agent)
-    ├── primary.bib
-    ├── secondary.bib
-    ├── log.md
-    ├── index.md
+project-root/
+├── AGENT.md              ← agent identity and rules; read first every session
+├── INGESTION.md          ← workflow: processing new PDFs
+├── REFINE_A.md           ← workflow: structural harmonization
+├── REFINE_B.md           ← workflow: depth audit
+├── REFINE_C.md           ← workflow: cross-link audit
+├── VERIFICATION.md       ← human verification protocol
+├── QUICKSTART.md         ← session invocation prompts
+├── README.md             ← this file
+├── raw/                  ← source PDFs (git-ignored; never modified by agent)
+└── wiki/
+    ├── primary.bib       ← BibTeX: papers with PDFs in raw/
+    ├── secondary.bib     ← BibTeX: papers cited within PDFs but not in raw/
+    ├── log.md            ← human verification log
+    ├── index.md          ← wiki root index; agent navigation entry point
     └── pages/
+        └── <TYPE>_<slug>.md
 ```
 
-## Quickstart
+## Using this wiki as a NeuroWiki example
 
-```bash
-# 1. Use this repo as a GitHub template, then clone your new repo
-git clone https://github.com/<you>/<your-project>
-cd <your-project>
+This repo demonstrates the NeuroWiki conventions in practice:
 
-# 2. Initialize the wiki folder structure
-bash setup.sh "My Project Name"
+- **Two-tier citation system** — `(@Key)` for PDFs verified in `raw/`, `(@Key†)` for secondary citations reconstructed from within those PDFs
+- **Typed concept pages** — `PHE_`, `MOD_`, `THE_`, `REG_`, `PAR_` prefixes separate phenomena, models, theories, regions, and paradigms
+- **Confidence tracking** — every `PHE_`, `MOD_`, and `REG_` page carries an `established` / `debated` / `speculative` rating
+- **Conflict surfacing** — papers that disagree are represented with both positions; irreconcilable conflicts are flagged for human review rather than silently resolved
 
-# 3. Fill in your project details
-# Open AGENT.md and complete Section 1
-
-# 4. Add papers and start your first ingestion session
-# Drop PDFs into raw/, then use a prompt from QUICKSTART.md
-```
-
-See **[QUICKSTART.md](QUICKSTART.md)** for session invocation prompts and usage patterns.
-See the **[example project wiki](https://github.com/neurowiki/example-hippocampus)** for a populated wiki showing real pages, session logs, and refinement reports.
-
-## Agent compatibility
-
-NeuroWiki works with any LLM agent. Bootstrap files auto-load `AGENT.md` on launch for supported agents:
-
-| Agent | Bootstrap file |
-|-------|---------------|
-| Claude Code | `CLAUDE.md` |
-| Gemini CLI | `GEMINI.md` |
-| Cursor | `CURSOR.md` |
-| OpenAI Codex | `AGENTS.md` |
-| Any other agent | Use invocation prompts from `QUICKSTART.md` |
-
-## Ecosystem
-
-NeuroWiki is the project layer of a two-tier local knowledge stack:
-
-```
-Lab wiki     ← lab level (separate repo; merges project wikis across a lab)
-        ↑
-NeuroWiki    ← project level (this repo)
-```
-
-When a project wiki is ready to share, it can be submitted to a lab wiki repository via pull request using the fork-copy-PR workflow described in **[CONTRIBUTING.md](CONTRIBUTING.md)**. The lab wiki merges contributions from all projects within a lab into a unified synthesis.
+See **[QUICKSTART.md](QUICKSTART.md)** for session invocation prompts.
+See the **[NeuroWiki template](https://github.com/ccnmaastricht/NeuroWiki.git)** for setup instructions if starting a new project.
 
 ## Legal notice
 

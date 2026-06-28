@@ -1,10 +1,10 @@
 ---
 type: index
 title: Wiki Root Index
-updated: YYYY-MM-DD
+updated: 2026-06-28
 ---
 
-# Wiki Index — <Project Name>
+# Wiki Index — Example Wiki
 
 ## Phenomena
 | Page | Title | Confidence | Updated |
@@ -16,7 +16,7 @@ updated: YYYY-MM-DD
 
 ## Theories
 | Page | Title | Status | Updated |
-|------|-------|------------|---------|
+|------|-------|--------|---------|
 
 ## Brain Regions & Cell Types
 | Page | Title | Confidence | Updated |
