@@ -5,6 +5,32 @@ See VERIFICATION.md for the verification protocol.
 
 ---
 
+## Session 2026-06-29 — Review: 2026-06-29
+
+**Run by**: Mario Senden
+
+### Changes
+
+- Target session: 2026-06-29 — Structural Harmonization (Template Update)
+- ⚑ flags: 0 resolved of 0 total
+- UNCITED flags: 0 resolved of 0 total
+- UNRESOLVED flags: 0 noted of 0 total
+
+### Flags raised
+- ⚑ Human review: none
+- `<!-- UNCITED -->`: none
+- `<!-- UNRESOLVED -->`: none
+
+### Flags resolved this session
+- none
+
+### Action items
+- none
+
+**Sign-off**: ✓ Verified — Mario Senden, 2026-06-29
+
+---
+
 ## Session 2026-06-29 — Structural Harmonization (Template Update)
 
 **Run by**: agent
@@ -35,7 +61,7 @@ See VERIFICATION.md for the verification protocol.
 ### Action items
 - REG_v1 — `Principal Cell Types` section is a stub; populate in next ingestion session covering V1 cell types (e.g., pyramidal cells, PV interneurons, SST interneurons, VIP interneurons)
 
-**Sign-off**: *(pending)*
+**Sign-off**: ✓ Verified — Mario Senden, 2026-06-29
 
 ---
 
