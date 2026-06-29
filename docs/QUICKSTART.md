@@ -129,6 +129,16 @@ Create one copy of this template per project or research line.
 | When a new contributor joins | REFINE_A |
 | After REFINE_C identifies candidate pages | Next ingestion session |
 
+## Review Schedule
+
+REVIEW is flag-driven, not periodic. Run it when:
+
+| Trigger | Action |
+|---------|--------|
+| A session has ⚑ flags that need a decision | Run REVIEW — flags require human judgment and block sign-off |
+| UNCITED or UNRESOLVED flags are accumulating across sessions | Run REVIEW to clear the backlog before it grows unwieldy |
+| Before manuscript submission or a modeling decision | Run REVIEW to ensure all flags on relevant pages are resolved and sessions are signed off |
+
 ---
 
 ## After Every Session
@@ -142,6 +152,31 @@ No wiki content should be used for methodological decisions or manuscript writin
 ---
 
 ## Tips for Users
+
+- **Ingest broadly, not just what you cite.** The wiki is most useful when it captures the
+  knowledge base behind your work, not just the papers that end up in your reference list.
+  Two categories matter beyond your core literature:
+  - *Methodological background*: comparative evaluations of preprocessing pipelines,
+    validation studies, technical reviews of recording and analysis techniques. These populate
+    the Decision Guidance sections that let the wiki answer "which approach and why" rather
+    than just "what has been done."
+  - *Biological substrate*: connectivity studies, anatomical surveys, cell-type
+    characterisations, learning rule papers, physiological parameter studies. For modelling
+    work especially, these are the empirical constraints that make a model biologically
+    meaningful — what connects to what, which cell types are present in the target region,
+    what synaptic rules operate there, what the baseline firing rates are. A model is only as
+    constrained as the biology you have ingested.
+
+  The paper you are writing cites 50 papers. The project behind it needs to understand 200.
+  Let the wiki carry that background so it accumulates across the whole lab rather than being
+  re-derived by each student.
+
+  The choice of what to ingest also shapes the wiki's character. Ingesting primarily empirical
+  papers builds a knowledge base rich in phenomena, brain regions, cell types, and circuits —
+  useful for grounding models and interpreting results. Ingesting primarily modelling papers
+  builds a richer landscape of theoretical proposals and their relationships. Most projects
+  benefit from both, but you can steer the balance to reflect where the lab's current
+  questions lie.
 
 - **Drop PDFs into `raw/` and run ingestion.** Don't manually summarize papers into wiki pages.
 - **There are no per-paper pages.** Look for the concept (`REG_v1-layer4`, `PHE_orientation-tuning`).

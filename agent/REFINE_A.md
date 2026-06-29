@@ -25,31 +25,22 @@ The authoritative page templates are in `agent/TEMPLATES.md` Section 1. The chec
 | Type | Required frontmatter fields |
 |------|-----------------------------|
 | All pages | `type`, `title`, `updated` |
-| PHE_, MOD_, REG_, CEL_, NET_, TECH_, ANA_ | + `confidence` |
+| PHE_, MOD_, REG_ | + `confidence` |
 | THE_ | + `status` |
-| MOD_ | + `explanatory_character`, `marr_level`, `construction`, `exploratory` |
-| NET_ | + `scale` |
-| TECH_ | + `subtype` |
+| MOD_ | + `subtype` |
 | All pages | `related` (list; empty list `[]` acceptable if no links yet) |
 
-Valid `type` values: `phenomenon`, `model`, `theory`, `region`, `cell_type`, `circuit`, `paradigm`, `technique`, `analysis`, `dataset`, `index`
+Valid `type` values: `phenomenon`, `model`, `theory`, `region`, `paradigm`, `index`
 
 ### Section order by page type
 
 | Type | Required sections, in order |
 |------|-----------------------------|
 | PHE_ | Description · Empirical Basis · Key Parameters and Quantitative Signatures · Generality · Controversies · Modeling Implications |
-| MOD_ | Description · Descriptive Target · Explanatory Scope · Formal Description · Core Assumptions · Empirical Support · Empirical Challenges · Comparison to Alternatives · Controversies · Usage in the Literature |
+| MOD_ | Description · Formal Description · Core Assumptions · Empirical Support · Empirical Challenges · Comparison to Alternatives · Controversies · Usage in the Literature |
 | THE_ | Core Claims · Explanatory Schema · Model Family · Mechanistic Grounding · Empirical Scope · Controversies · Key Sources |
-| REG_ | Anatomical Identity · Connectivity · Functional Role(s) · Principal Cell Types · Controversies · Modeling Considerations |
-| CEL_ | Identity · Distribution · Physiology · Connectivity · Functional Role(s) · Controversies · Modeling Considerations |
-| NET_ | Description · Components · Connectivity Architecture · Functional Organization · Controversies · Modeling Considerations |
-| PAR_ | Description · What It Measures / Reveals · Standard Variants · Limitations and Confounds · Key Studies · Relevance to This Project |
-| TECH_ | Description · Spatial and Temporal Resolution · Key Assumptions and Limitations · Species and Preparation Compatibility · Standard Variants · Decision Guidance · Software and Hardware · Controversies |
-| ANA_ | Description · Key Assumptions · Known Artifacts and Limitations · Standard Variants · Decision Guidance · Software Implementations · Usage in the Literature |
-| DAT_ | Description · Recording Conditions · Modality and Scale · Data Structure and Access · Key Publications · Relevance to This Project |
-
-Note: **Decision Guidance** in TECH_ and ANA_ pages is optional — add as a stub only if source material addresses this topic. **Controversies** in all page types is optional — add only if encountered; omit the section entirely otherwise.
+| REG_ | Anatomical Identity · Physiology · Connectivity · Functional Role(s) · Controversies · Modeling Considerations |
+| PAR_ | Description · What It Measures / Reveals · Standard Variants · Limitations and Confounds · Key Studies and Datasets · Relevance to This Project |
 
 ### Notation standards
 
@@ -89,11 +80,15 @@ For every file in `wiki/pages/` and `wiki/index.md`:
 
 ## Step A4 — Write Session Log Entry
 
-Append a new entry to `wiki/log.md` (after the opening `---`, newest first) using the canonical format from the agent context file's **Session Log** section (see CLAUDE.md / AGENTS.md / GEMINI.md / CURSOR.md). Print the entry to the conversation.
+Append a new entry to `wiki/log.md`, directly after the opening `---` separator (newest entry first):
 
-For the **Changes** section, include:
+```markdown
+## Session YYYY-MM-DD — Structural Harmonization
 
-```
+**Run by**: <name or "agent">
+
+### Changes
+
 - Pages audited: N
 - Pages with no issues: N
 - Pages repaired: N
@@ -102,6 +97,20 @@ For the **Changes** section, include:
 - Section reordering: <page, or "none">
 - Heading renames: <page: old → new, or "none">
 - Notation corrections: N instances across M pages (or "none")
+
+### Flags raised
+- ⚑ Human review: <page — issue, or "none">
+- `<!-- UNCITED -->`: <page — claim summary, or "none">
+- `<!-- UNRESOLVED -->`: <description, or "none">
+
+### Flags resolved this session
+- <list, or "none">
+
+### Action items
+- <list any `<!-- MISSING -->` stubs added, so the human knows what needs populating in
+  the next ingestion session, or "none">
+
+**Sign-off**: *(pending)*
 ```
 
-List any `<!-- MISSING -->` stubs added under **Action items** so the human knows what needs populating in the next ingestion session.
+Print the completed entry to the conversation.
